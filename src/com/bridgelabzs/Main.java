@@ -7,18 +7,21 @@ package com.bridgelabzs;
  * @since 2021-08-12
  */
 public class Main {
+	//constants
 	final static int IS_FULL_TIME = 1, IS_PART_TIME = 2;
     private final int EMP_RATE_PER_HR ;
     private final int NUM_OF_WORKING_DAYS;
     private final int MAX_HRS_IN_MONTH;
     public final String COMPANY_NAME;
+    //variables
+    private int totalEmpWage;
 
     public Main(int emp_hrs, int work_hrs, int hrs_month, String company)
     	{
     		// Assigning/setting parameters to varaible
     		this.EMP_RATE_PER_HR = emp_hrs;
     		this.NUM_OF_WORKING_DAYS = work_hrs;
-            this.MAX_HRS_IN_MONTH = hrs_month;
+            	this.MAX_HRS_IN_MONTH = hrs_month;
            	this.COMPANY_NAME = company;
                             }
     
@@ -51,4 +54,9 @@ public class Main {
 
           System.out.println(COMPANY_NAME+" Total Employee Wage : "+ totalEmpWage);
     }
+    
+    @Override
+   	public String toString() {
+   		return " Total Employee Wage"+COMPANY_NAME+" : " + totalEmpWage;
+   	}
 }
