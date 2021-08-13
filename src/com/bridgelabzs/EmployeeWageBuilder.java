@@ -1,7 +1,15 @@
 package com.bridgelabzs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+/**
+ * This program computes employee wage.
+ * @author Sheetal
+ * @since 2021-08-13
+ */
 
 public class EmployeeWageBuilder implements EmpWageInterface {
 		//constants
@@ -11,12 +19,18 @@ public class EmployeeWageBuilder implements EmpWageInterface {
 
 	    private int numOfCompany = 0;
 	    
-	    // Defining and initialising ArrayList
+	 // Defining and initialising ArrayList and HashMap
 	    private List<EmployeeWage> employeeWageArray;
+	    private Map<String, EmployeeWage> map;
 	    
 	    public EmployeeWageBuilder() {
 	        employeeWageArray = new ArrayList<EmployeeWage>();
+	        map = new HashMap<String, EmployeeWage>();
 	    }
+	    
+	    private int getTotalWage(String companyName) {
+			return map.get(companyName).totalWage;
+		}
 
 		@Override
 		public void addCompanyWage(String companyName, int max_working_hrs, int days_in_month, int wage_per_hr) {
@@ -35,8 +49,10 @@ public class EmployeeWageBuilder implements EmpWageInterface {
 				EmployeeWage employeeWage = employeeWageArray.get(i);
 				employeeWage.setTotalWage(computeEmpWage(employeeWage));
 				System.out.println(employeeWage);
+				System.out.println(this.map);
 			}
 		}
+
 	
 	 /**
      * This method conatains the calculation of
@@ -70,21 +86,23 @@ public class EmployeeWageBuilder implements EmpWageInterface {
 	            System.out.println("Day " + day + " wage is " + daily_wage_array[j]);
 	            monthly_total_wage = monthly_total_wage + daily_wage_array[j];
 	        }
-
+	        map.put(employeeWage.getcompanyName(), employeeWage);
 	        return monthly_total_wage;
 	    }
     
-    /**
-	 * This is the main method that
-	 * creates object of two companies and 
-	 * calls the method 
-	 */
+		/**
+		 * This is the main method that
+		 * creates object of two companies and 
+		 * calls the method 
+		 */
 		public static void main(String[] args) {
 	    	// creating object
 	        EmployeeWageBuilder employeeWageBuilder = new EmployeeWageBuilder();
-	        // calling the methods
+	        // calling the objects
 	        employeeWageBuilder.addCompanyWage("Jio", 100, 20, 100);
 	        employeeWageBuilder.addCompanyWage("Airtel", 150, 25, 110);
 	        employeeWageBuilder.computeEmpWage();
+	        System.out.println("Total employee wage for Jio " + employeeWageBuilder.getTotalWage("Jio"));
 	    }
+		
 }

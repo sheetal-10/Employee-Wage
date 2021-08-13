@@ -1,5 +1,10 @@
 package com.bridgelabzs;
 
+/**
+ * This contains all the variables declaration and initialization and 
+ * @author Sheetal
+ * @since 2021-08-13
+ */
 public class EmployeeWage {
 		//variables
 	public String companyName;
@@ -26,4 +31,9 @@ public class EmployeeWage {
 	    public String toString() {
 	        return "Monthly wage for " + companyName + " is " + totalWage;
 	    }
+	    
+	    public String getcompanyName() {
+			return companyName;
+		}
+
 }
