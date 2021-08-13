@@ -2,12 +2,12 @@ package com.bridgelabzs;
 
 public class EmployeeWage {
 		//variables
-	 	public String companyName;
-	    public int max_working_hrs;
-	    public int days_in_month;
-	    public int wage_per_hr;
-	    public int totalWage;
-
+	public String companyName;
+    public int max_working_hrs;
+    public int days_in_month;
+    public int wage_per_hr;
+    public int totalWage;
+    
 	    public EmployeeWage(String companyName, int max_working_hrs, int days_in_month, int wage_per_hr) {
 	       // Assigning/setting parameters to varaible
 	    	this.companyName = companyName;
